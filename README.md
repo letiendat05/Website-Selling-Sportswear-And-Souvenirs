@@ -6,6 +6,10 @@ Dự án website bán đồ thể thao và quà lưu niệm cung cấp các sả
 2. Backend
    * Tính Năng
    * Công Nghệ
-5. Admin Dashboard
-6. Thanh Toán
-7. Cấu Trúc Thư Mục
+3. Admin Dashboard
+   * Tính Năng
+   * Công Nghệ
+4. Thanh Toán
+   * Tính Năng
+   * Công Nghệ
+5. Cấu Trúc Thư Mục
