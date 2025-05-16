@@ -6,11 +6,11 @@ Dự án website bán đồ thể thao và quà lưu niệm cung cấp các sả
  - Trinh Tran Nguyen Vu 23010529
 # Frontend
    * Tính Năng
-     -Trang chủ: Hiển thị sản phẩm, tìm kiếm, lọc theo danh mục
-     -Trang chí theo sản phẩm
-     -Giỏ hàng: thêm/xóa/sp tính tổng
-     -Trang thanh toán: nhập thông tin người mua
-     -Đăng kí / đăng nhập
+     Trang chủ: Hiển thị sản phẩm, tìm kiếm, lọc theo danh mục
+     Trang chí theo sản phẩm
+     Giỏ hàng: thêm/xóa/sp tính tổng
+     Trang thanh toán: nhập thông tin người mua
+     Đăng kí / đăng nhập
    * Công Nghệ
 # Backend
    * Tính Năng
