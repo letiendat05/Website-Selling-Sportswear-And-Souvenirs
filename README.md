@@ -17,6 +17,10 @@ Dự án website bán đồ thể thao và quà lưu niệm cung cấp các sả
    * Công Nghệ
 # Admin Dashboard
    * Tính Năng
+     - Đăng nhập admin
+     - Quản lý sản phẩm: Thêm / Sửa / Xóa
+     - Xem đơn hàng người dùng
+     - Thống kê doanh thu
    * Công Nghệ
 # Thanh Toán
    * Tính Năng
