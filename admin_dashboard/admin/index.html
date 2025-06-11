@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard</h1>
+    <button onclick="logout()">Đăng xuất</button>
+  </header>
+  <nav>
+    <button onclick="showSection('products')">Sản phẩm</button>
+    <button onclick="showSection('orders')">Đơn hàng</button>
+    <button onclick="showSection('revenue')">Doanh thu</button>
+  </nav>
+  <main>
+    <section id="products">
+      <h2>Quản lý sản phẩm</h2>
+      <form id="product-form">
+        <input type="hidden" id="product-id"/>
+        <input type="text" id="product-name" placeholder="Tên sản phẩm" required/>
+        <input type="number" id="product-price" placeholder="Giá" required/>
+        <input type="text" id="product-image" placeholder="Link ảnh" required/>
+        <input type="text" id="product-category" placeholder="Danh mục" required/>
+        <button type="submit">Lưu</button>
+      </form>
+      <ul id="product-list"></ul>
+    </section>
+
+    <section id="orders" style="display:none;">
+      <h2>Đơn hàng</h2>
+      <ul id="order-list"></ul>
+    </section>
+
+    <section id="revenue" style="display:none;">
+      <h2>Thống kê doanh thu</h2>
+      <canvas id="revenueChart" width="400" height="200"></canvas>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
