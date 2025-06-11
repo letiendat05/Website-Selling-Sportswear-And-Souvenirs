@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports & Souvenirs Shop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: Arial, sans-serif; background: #f5f7fa; color: #333;}
+    header {background-color: #1976d2; padding: 1rem 2rem; color: white; display: flex; justify-content: space-between; align-items: center;}
+    nav a {color: white; margin-left: 15px; text-decoration: none; font-weight: bold;}
+
+    .banner {
+      background: url('https://images.unsplash.com/photo-1606813902546-094d1efb5cda') center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .container {display: flex; padding: 20px;}
+    .sidebar {
+      width: 200px;
+      background: white;
+      padding: 15px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      margin-right: 20px;
+    }
+    .sidebar h3 {margin-bottom: 10px; color: #1976d2;}
+    .sidebar ul {list-style: none;}
+    .sidebar li {margin: 8px 0;}
+
+    .products {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      background: white;
+      padding: 15px;
+      border-radius: 6px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .product img {width: 100%; height: 150px; object-fit: cover;}
+    .product h4 {margin: 10px 0;}
+    .product p {color: #1976d2; font-weight: bold;}
+    .product button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .product button:hover {background: #155a9c;}
+
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🏀 Sports & Souvenirs</div>
+    <nav>
+      <a href="#">Trang chủ</a>
+      <a href="#">Sản phẩm</a>
+      <a href="#">Giỏ hàng</a>
+      <a href="#">Đăng nhập</a>
+    </nav>
+  </header>
+
+  <div class="banner">
+    Ưu đãi đặc biệt hôm nay!
+  </div>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h3>Danh mục</h3>
+      <ul>
+        <li><a href="#">Áo thể thao</a></li>
+        <li><a href="#">Phụ kiện</a></li>
+        <li><a href="#">Quà lưu niệm</a></li>
+      </ul>
+    </aside>
+
+    <section class="products">
+      <div class="product">
+        <img src="https://via.placeholder.com/200x150" alt="Product 1">
+        <h4>Áo thể thao nam</h4>
+        <p>250.000₫</p>
+        <button>Thêm vào giỏ</button>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/200x150" alt="Product 2">
+        <h4>Móc khóa lưu niệm</h4>
+        <p>50.000₫</p>
+        <button>Thêm vào giỏ</button>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/200x150" alt="Product 3">
+        <h4>Bình nước thể thao</h4>
+        <p>150.000₫</p>
+        <button>Thêm vào giỏ</button>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Sports & Souvenirs - Thiết kế bởi bạn
+  </footer>
+</body>
+</html>
