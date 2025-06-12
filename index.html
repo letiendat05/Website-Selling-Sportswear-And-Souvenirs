@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thanh Toán Đơn Hàng</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .product {
+      background: #fafafa;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+
+    .product img {
+      width: 100%;
+      height: 130px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .product input[type="number"] {
+      width: 60px;
+      padding: 5px;
+      margin-top: 5px;
+    }
+
+    .product input[type="checkbox"] {
+      margin-top: 10px;
+      transform: scale(1.2);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #28a745;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 6px;
+      margin-top: 25px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #d4edda;
+      border-radius: 6px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Thanh Toán Đơn Hàng</h1>
+
+  <div class="form-group">
+    <label>Họ và tên</label>
+    <input type="text" id="name" placeholder="Nhập họ tên">
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Nhập email">
+  </div>
+
+  <div class="form-group">
+    <label>Địa chỉ nhận hàng</label>
+    <input type="text" id="address" placeholder="Nhập địa chỉ nhận hàng">
+  </div>
+
+  <div class="form-group">
+    <label>Chọn sản phẩm:</label>
+    <div class="product-list" id="productList"></div>
+  </div>
+
+  <button onclick="checkout()">Thanh Toán</button>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  const products = [
+    { id: 1, name: 'Nike Mercurial Vapor 16 Elite Vini Jr', price: 8500000, image: 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/69669444-60a6-44c4-8944-a076f01f8e0d/ZM+VAPOR+16+ELITE+FG+OLY.png' },
+    { id: 2, name: 'FFF Men Team 2024/25 Stadium Away', price: 3500000, image: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/ab31ff23-134e-4a2e-98b3-f4a2dd67081b/NK+24%2F25+W+Rep+Jersey+Player.png' },
+    { id: 3, name: 'Găng Tay Thủ Môn Nike Vapor Grip 3', price: 1850000, image: 'https://product.hstatic.net/200000476447/product/gang_tay_thu_mon_nike_vapor_grip_3_-_cn5650-765_299d5843c4a24173a5b6db3541556ce4_master.png' },
+  ];
+
+  function renderProducts() {
+    const container = document.getElementById('productList');
+    products.forEach(product => {
+      const div = document.createElement('div');
+      div.className = 'product';
+      div.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h4>${product.name}</h4>
+        <p><strong>${product.price.toLocaleString()}</strong></p>
+        <label>
+          <input type="checkbox" id="check-${product.id}">
+          Chọn mua
+        </label>
+        <label>Số lượng:
+          <input type="number" id="qty-${product.id}" value="1" min="1" disabled>
+        </label>
+      `;
+      container.appendChild(div);
+
+      const checkbox = div.querySelector(`#check-${product.id}`);
+      const qtyInput = div.querySelector(`#qty-${product.id}`);
+      checkbox.addEventListener('change', () => {
+        qtyInput.disabled = !checkbox.checked;
+      });
+    });
+  }
+
+  function checkout() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const resultDiv = document.getElementById("result");
+
+    if (!name || !email || !address) {
+      alert("Vui lòng nhập đầy đủ thông tin khách hàng");
+      return;
+    }
+
+    let selectedProducts = [];
+    let total = 0;
+
+    products.forEach(p => {
+      const checked = document.getElementById(`check-${p.id}`).checked;
+      const qty = parseInt(document.getElementById(`qty-${p.id}`).value);
+      if (checked && qty > 0) {
+        selectedProducts.push({ ...p, quantity: qty });
+        total += p.price * qty;
+      }
+    });
+
+    if (selectedProducts.length === 0) {
+      alert("Vui lòng chọn ít nhất một sản phẩm");
+      return;
+    }
+
+    let productDetails = selectedProducts.map(p => 
+      `• ${p.name} x ${p.quantity} = ${ (p.price * p.quantity).toLocaleString()}đ`
+    ).join("<br>");
+
+    resultDiv.innerHTML = `
+      <strong> Thanh toán thành công!</strong><br>
+      <strong>Cảm ơn quý khách chúc quý khách ngày tốt lành</strong><br>
+      <strong>Khách hàng:</strong> ${name}<br>
+      <strong>Email:</strong> ${email}<br>
+      <strong>Địa chỉ:</strong> ${address}<br>
+      <strong>Chi tiết đơn hàng:</strong><br>
+      ${productDetails}<br><br>
+      <strong>Tổng cộng:</strong> <span style="color:green;">${total.toLocaleString()}đ</span>
+    `;
+    resultDiv.style.display = "block";
+  }
+  renderProducts();
+</script>
+</body>
+</html>
