@@ -18,16 +18,16 @@ Dự án website bán đồ thể thao và quà lưu niệm cung cấp các sả
 # 🌐 Cấu trúc thư mục chính
 
 sports-shop/
-├── app/               # Các trang (route) chính
-├── components/        # Component giao diện tái sử dụng
-├── contexts/          # React context chia sẻ dữ liệu
-├── hooks/             # Custom React hooks
-├── lib/               # Tiện ích, kết nối DB, API helper
-├── public/            # Tài nguyên tĩnh (ảnh, logo)
-├── styles/            # Tệp CSS toàn cục
-├── package.json       # Thư viện và script
-├── tsconfig.json      # Cấu hình TypeScript
-├── tailwind.config.ts # Cấu hình Tailwind
+├── app/                # Các trang (route) chính
+├── components/         # Component giao diện tái sử dụng
+├── contexts/           # React context chia sẻ dữ liệu
+├── hooks/              # Custom React hooks
+├── lib/                # Tiện ích, kết nối DB, API helper
+├── public/             # Tài nguyên tĩnh (ảnh, logo)
+├── styles/             # Tệp CSS toàn cục
+├── package.json/       # Thư viện và script
+├── tsconfig.json/      # Cấu hình TypeScript
+├── tailwind.config.ts/ # Cấu hình Tailwind
 
 # 🧩 Thư mục `app/` – Các trang chính
 
